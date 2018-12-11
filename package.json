@@ -1,0 +1,55 @@
+{
+  "name": "tjung",
+  "version": "1.0.0",
+  "description": "Tjung",
+  "main": "app.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=env",
+    "build": "mkdir dist/ && babel src -d dist",
+    "clean": "rm -rf dist/ && rm -rf build/",
+    "dev": "NODE_PATH=src nodemon --watch src/ --exec npm run babel-node -- ./src/app.js",
+    "mocha": "mocha --compilers js:babel-register || true",
+    "prestart": "npm run clean && npm run build",
+    "start": "NODE_PATH=dist node dist/app.js",
+    "test": "NODE_PATH=src mocha --require babel-register --require babel-polyfill --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://SwissClinicJonathan@bitbucket.org/swissclinicdev/tjung.git"
+  },
+  "author": "Johan Bergström",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-wildcard": "^5.0.0",
+    "babel-preset-env": "^1.7.0",
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^3.3.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "debug": "^3.1.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "joi": "^13.5.2",
+    "mongoose": "^5.2.7",
+    "mongoose-unique-validator": "^2.0.1",
+    "nodemon": "^1.18.3",
+    "redis": "^2.8.0",
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "wildcard"
+    ]
+  }
+}
