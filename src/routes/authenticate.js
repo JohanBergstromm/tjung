@@ -37,7 +37,7 @@ async function authenticate(req, res) {
     res.status(400).send(err.message);
   }
 
-  res.send('Successfullt authenticated.');
+  res.redirect('/home');
 }
 
 export default router;
