@@ -37,7 +37,7 @@ async function authenticate(req, res) {
     res.status(400).send(err.message);
   }
 
-  res.redirect('/home');
+  res.redirect('/');
 }
 
 export default router;

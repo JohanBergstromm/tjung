@@ -4,18 +4,20 @@
 <head>
     <title>Tjung</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/dist/style.css">
+    <script type="text/javascript">window.modules = {};</script>
 </head>
 
 <body>
     <div class="navigation-wrap">
-        <div class="navigation text-center">
+        <div class="navigation">
             <div class="profile-img my-4"></div>
             <nav>
                 <ul class="unstyled-list">
-                    <li><a href="/" class="py-2 d-block">Hem</a></li>
-                    <li><a href="/register" class="py-2 d-block">Register</a></li>
-                    <li><a href="/logout" class="py-2 d-block">Log out</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/accounts">Accounts</a></li>
                 </ul>
             </nav>
         </div>
@@ -23,9 +25,12 @@
     <div class="wrapper">
     {{{body}}}
     </div>
-    <script type="text/javascript" src="/script/vendor/handlebars-v4.0.10.js"></script>
-    <script type="text/javascript" src="/script/templates/templates.js"></script>
-    <script type="text/javascript" src="/script/modules/script.js"></script>
+    <script type="text/javascript">
+        var pageEl = document.querySelectorAll("[class^=page--]")[0];
+        window.page = pageEl.className.split('--').pop();
+    </script>
+    <script type="text/javascript" src="/dist/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/dist/script.js"></script>
 </body>
 
 </html>

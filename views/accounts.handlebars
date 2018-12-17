@@ -1,0 +1,8 @@
+<div class="page--accounts">
+	{{#each user}}
+		<div class="account">
+			<p>{{this.email}}</p>
+			<button data-id="{{this._id}}">Delete</button>
+		</div>
+	{{/each}}
+</div>

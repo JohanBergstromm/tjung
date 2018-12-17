@@ -1,3 +1,32 @@
-<h1>Register</h1>
-<form action="/register" method="post"> <input type="email" name="email" placeholder="Email..."> <input type="password" name="password" placeholder="Password..."> <input type="password" name="confirm_password" placeholder="Confirm password..."> <button type="submit">Submit</button> </form>
-<hr><a href="/">Login</a>
+<div class="page--register">
+	<h1>Register</h1>
+	<form action="/register" method="post" name="register" id="form-register"> 
+		<input type="email" name="email" placeholder="Email..." required=""> 
+		<input type="password" name="password" placeholder="Password..." required=""> 
+		<input type="password" name="confirm_password" placeholder="Confirm password..." required=""> 
+		<label>Admin
+			<input type="radio" name="role" value="admin" class="admin">
+		</label>
+		<label>User
+			<input type="radio" name="role" value="user" class="user">
+		</label>
+		{{#if user.permission.admin}}
+		<label>Mom
+			<input type="radio" name="role" value="mom" class="mom">
+		</label>
+		<label>Ryberg
+			<input type="radio" name="role" value="ryberg" class="ryberg">
+		</label>
+		{{/if}}
+		<label>Demo
+			<input type="radio" name="role" value="demo" class="demo">
+		</label>
+		<button type="submit">Submit</button> 
+	</form>
+	<div class="accounts">
+		{{#each users}}
+			<p>{{this.email}}</p>
+		{{/each}}
+	</div>
+	<hr><a href="/">Log in</a>
+</div>

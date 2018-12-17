@@ -19,6 +19,7 @@ import mongoose from 'mongoose';
 import path from 'path';
 import RedisStorePackage from 'connect-redis';
 import session from 'express-session';
+import User from 'models/User';
 log.app('Packages loaded.');
 
 // Routes
@@ -43,7 +44,7 @@ app.use(
 );
 app.use(cors());
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 log.app('Packages enabled.');
 
@@ -143,6 +144,17 @@ app.on('ready', () => {
     });
 });
 
+// Make user object global
+app.use(async function(req, res, next) {
+    const getUserId = req.session.userId;
+	const getUserIdRememberMe = req.cookies.userId;
+	const userId = getUserId === undefined ? getUserIdRememberMe : getUserId;
+
+	res.locals.user = await User.findById(userId);
+
+    next();
+});
+
 // Set handlebars as the view engine.
 const viewsDir = path.join(__dirname, '../views');
 app.set('views', viewsDir);
@@ -159,8 +171,8 @@ app.set('view engine', 'handlebars');
 // Setup static paths
 app.use('/handlebars', express.static(path.join(__dirname, 'node_modules/handlebars')));
 
-// Set the public-folder to static.
-app.use(express.static('public'));
+// Set the static-folder to static.
+app.use(express.static('static'));
 
 
 export default app;

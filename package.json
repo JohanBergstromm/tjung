@@ -7,7 +7,7 @@
     "babel-node": "babel-node --presets=env",
     "build": "mkdir dist/ && babel src -d dist",
     "clean": "rm -rf dist/ && rm -rf build/",
-    "ct": "handlebars views/templates/ -f public/script/templates/templates.js",
+    "ct": "handlebars views/templates/ -f static/script/templates/templates.js",
     "dev": "NODE_PATH=src nodemon --watch src/ --exec npm run babel-node -- ./src/app.js",
     "mocha": "mocha --compilers js:babel-register || true",
     "prestart": "npm run clean && npm run build",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://SwissClinicJonathan@bitbucket.org/swissclinicdev/tjung.git"
+    "url": "https://github.com/JohanBergstromm/tjung.git"
   },
   "author": "Johan Bergström",
   "license": "ISC",
@@ -35,6 +35,11 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-order": "^1.2.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-watch": "^5.0.1",
     "joi": "^13.5.2",
     "mongoose": "^5.2.7",
     "mongoose-unique-validator": "^2.0.1",
