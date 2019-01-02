@@ -1,0 +1,30 @@
+.modal-wrap {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	z-index: 9999;
+	top: 0;
+
+	.modal--delete {
+		margin: auto;
+		width: 500px;
+		background-color: #fff;
+
+		.header {
+			padding: 40px 50px;
+
+			.icon-report::before {
+				font-size: 46px;
+				color: #e36889;
+			}
+		}
+
+		.body {
+			background-color: #f9f9f9;
+			border-top: 1px solid #eee;
+			padding: 40px 50px;
+		}
+	}
+}

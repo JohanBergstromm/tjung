@@ -33,11 +33,12 @@ async function authenticate(req, res) {
     } else {
       req.session.userId = user._id;
     }
+
+    res.redirect('/');
+    
   } catch (err) {
     res.status(400).send(err.message);
   }
-
-  res.redirect('/');
 }
 
 export default router;

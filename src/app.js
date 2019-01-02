@@ -45,6 +45,8 @@ app.use(
 app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.raw());
+app.use(bodyParser.text());
 app.use(bodyParser.json());
 log.app('Packages enabled.');
 
@@ -117,7 +119,7 @@ app.on('db-connected', () => {
     }
 
     app.use((req, res) => {
-        res.status(404).send('<h1>404 - Not found</h1>');
+        res.status(404).render('404');
     });
 
     log.app('Routes added.');

@@ -1,8 +1,46 @@
 <div class="page--accounts">
-	{{#each user}}
-		<div class="account">
-			<p>{{this.email}}</p>
-			<button data-id="{{this._id}}">Delete</button>
+	<div class="account-wrap mx-auto mt-lg-4">
+		<div class="d-flex flex-wrap">
+			<div class="name px-4 pt-2">
+				<h6>Name</h6>
+			</div>
+			<div class="email px-4 pt-2">
+				<h6>Email</h6>
+			</div>
+			<div class="account-type px-4 pt-2">
+				<h6>Account type</h6>
+			</div>
 		</div>
-	{{/each}}
+		<hr class="mt-0 mb-2">
+		{{#each users}}
+		<div class="d-flex flex-wrap account">
+			<div class="name px-4">
+				<p class="mb-0">{{this.first_name}} {{this.last_name}}</p>
+			</div>
+			<div class="email px-4">
+				<p class="mb-0">{{this.email}}</p>
+			</div>
+			<div class="account-type px-4">
+				{{#if this.permission.admin}}
+				<p class="mb-0">Admin</p>
+				{{/if}}
+				{{#if this.permission.user}}
+				<p class="mb-0">User</p>
+				{{/if}}
+				{{#if this.permission.mom}}
+				<p class="mb-0">Mom</p>
+				{{/if}}
+				{{#if this.permission.ryberg}}
+					<p class="mb-0">Ryberg</p>
+				{{/if}}
+				{{#if this.permission.demo}}
+				<p class="mb-0">Demo</p>
+				{{/if}}
+			</div>
+			<div class="remove-account mx-auto">
+				<button data-id="{{this._id}}" class="remove text-uppercase px-3">Delete</button>
+			</div>
+		</div>
+		{{/each}}
+	</div>
 </div>

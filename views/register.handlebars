@@ -1,32 +1,50 @@
 <div class="page--register">
-	<h1>Register</h1>
-	<form action="/register" method="post" name="register" id="form-register"> 
-		<input type="email" name="email" placeholder="Email..." required=""> 
-		<input type="password" name="password" placeholder="Password..." required=""> 
-		<input type="password" name="confirm_password" placeholder="Confirm password..." required=""> 
-		<label>Admin
-			<input type="radio" name="role" value="admin" class="admin">
-		</label>
-		<label>User
-			<input type="radio" name="role" value="user" class="user">
-		</label>
-		{{#if user.permission.admin}}
-		<label>Mom
-			<input type="radio" name="role" value="mom" class="mom">
-		</label>
-		<label>Ryberg
-			<input type="radio" name="role" value="ryberg" class="ryberg">
-		</label>
-		{{/if}}
-		<label>Demo
-			<input type="radio" name="role" value="demo" class="demo">
-		</label>
-		<button type="submit">Submit</button> 
-	</form>
-	<div class="accounts">
-		{{#each users}}
-			<p>{{this.email}}</p>
-		{{/each}}
+	<div class="d-flex pt-lg-4">
+		<div class="register-form-wrap d-flex m-auto">
+			<div class="user-created mx-auto d-none hidden"></div>
+			<form action="/register" method="post" name="register" id="form-register" class="mx-auto"> 
+				<h2 class="mb-5">Sign up</h2>
+				<div class="icon-holder icon-user position-relative mb-4">
+					<input type="text" name="fname" placeholder="First name" required="" class="line w-100 py-2 px-4"> 
+				</div>
+				<div class="icon-holder icon-user position-relative mb-4">
+					<input type="text" name="lname" placeholder="Last name" required="" class="line w-100 py-2 px-4"> 
+				</div>
+				<div class="icon-holder icon-message position-relative mb-4">
+					<input type="email" name="email" placeholder="Email" required="" class="line w-100 py-2 px-4"> 
+				</div>
+				<div class="icon-holder icon-key position-relative mb-4">
+					<input type="password" name="password" placeholder="Password" required="" class="line w-100 py-2 px-4"> 
+				</div>
+				<div class="icon-holder icon-padlock position-relative mb-4">
+					<input type="password" name="confirm_password" placeholder="Confirm password" required="" class="line w-100 py-2 px-4"> 
+				</div>
+				<div>
+					<p class="mb-0"><i>Type of user</i></p>
+					<hr class="my-2" style="background-color: rgba(0,0,0,0.4)">
+				</div>
+				<label class="mr-2">Admin
+					<input type="radio" name="role" value="admin" class="admin">
+				</label>
+				<label class="mr-2">User
+					<input type="radio" name="role" value="user" class="user">
+				</label>
+				{{#if user.permission.admin}}
+				<label class="mr-2">Mom
+					<input type="radio" name="role" value="mom" class="mom">
+				</label>
+				<label class="mr-2">Ryberg
+					<input type="radio" name="role" value="ryberg" class="ryberg">
+				</label>
+				{{/if}}
+				<label class="mr-2">Demo
+					<input type="radio" name="role" value="demo" class="demo">
+				</label>
+				<div class="mt-4">
+					<button type="submit" class="blue-fade py-2 text-uppercase px-5">Register</button> 
+				</div>
+			</form>
+			<div class="form-image w-50 d-none d-md-block"></div>
+		</div>
 	</div>
-	<hr><a href="/">Log in</a>
 </div>

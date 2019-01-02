@@ -23,6 +23,14 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    first_name: {
+        type: String,
+        required: true,
+    },
+    last_name: {
+        type: String,
+        required: true,
+    },
     permission: {
         admin: { type: Boolean, default: true },
         user: { type: Boolean, default: true },
@@ -58,7 +66,7 @@ schema.statics.authenticate = async function({ email, password }) {
     }
 
     if (!user) {
-        const err = new Error('Email or password did not match, try again.');
+        const err = new Error('User does not exist, try again.');
         err.status = 401;
         log(err);
         throw err;
@@ -70,7 +78,7 @@ schema.statics.authenticate = async function({ email, password }) {
         if (result === true) {
             return user;
         } else {
-            const err = new Error('Email or password did not match, try again.');
+            const err = new Error('Password did not match, try again.');
             err.status = 401;
             log(err);
             throw err;

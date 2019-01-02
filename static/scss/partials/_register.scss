@@ -1,0 +1,43 @@
+.page--register {
+	.register-form-wrap {
+		background-color: #fff;
+		border-radius: 20px;
+		box-shadow: 0px 5px 30px -5px rgba(0, 0, 0, 0.2);
+		width: 100%;
+		padding: 25px 15px;
+
+		@media only screen and (min-width: 768px) {
+			width: 1000px;
+			padding: 90px;
+		}
+
+		#form-register,
+		.user-created {
+			width: 90%;
+			transition: opacity 300ms ease-out;
+			@media only screen and (min-width: 768px) {
+				width: 50%;
+			}
+		}
+
+		.icon-holder::before {
+			position: absolute;
+			font-size: 14px;
+			bottom: 10px;
+			font-weight: 600;
+		}
+
+		input, label, p {
+			font-size: 14px;
+		}
+	}
+
+	.form-image {
+		background-image: url('/images/image/signup.jpg');
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin-left: 50px;
+    	min-height: 529px;
+	}
+}

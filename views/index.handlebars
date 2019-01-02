@@ -1,9 +1,19 @@
 <div class="page--index">
-	<form action="/authenticate" method="post" class="form">
-	    <div> <input type="email" name="email" placeholder="Email"> </div>
-	    <div> <input type="password" name="password" placeholder="Password"> </div>
-	    <div> <label for="remember-me" class="d-flex"> <input type="checkbox" id="remember-me" name="remember_me" /> Remember me </label> </div>
-	    <div> <button type="submit">Log in</button> </div>
-	    <hr> <a href="/register">Register</a>
-	</form>
+	<div class="form-modal p-5">
+		<h2 class="text-center mb-5">Sign In</h2>
+		<form action="/authenticate" method="post" class="form w-100">
+		     <input type="email" name="email" placeholder="Email" class="w-100 mb-4 py-2">
+		     <input type="password" name="password" placeholder="Password" class="w-100 mb-4 py-2">
+		     <label for="remember-me" class="d-flex justify-content-between mb-4 pointer">
+			     <span>Remember me</span>
+			     <div class="d-inline-block slide-button">
+					<input type="checkbox" id="remember-me" name="remember_me" class="hidden">
+				</div>
+			</label>
+			<div class="w-100 mb-4">
+				 <button type="submit" class="blue-fade btn-block py-2 text-uppercase">Sign in</button>
+			</div>
+		    <hr> <a href="/register">Register</a>
+		</form>
+	</div>
 </div>

@@ -1,0 +1,32 @@
+.page--index {
+	background-image: url('/images/cover/jellyfish-under-water-sea-ocean.jpg');
+	background-position: center;
+    background-size: cover;
+	height: 100%;
+	display: flex;
+
+	.form-modal {
+		border-radius: 20px;
+		margin: auto;
+		box-shadow: 0px 2px 30px -10px rgba(0, 0, 0, 1);
+		background-color: #f9f9f9;
+		width: 95%;
+
+		@media screen and (min-width: 556px) {
+			width: 400px;
+		}
+
+		input {
+			border-radius: 20px;
+			border: none;
+			box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+			padding-left: 15px;
+			padding-right: 15px;
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 0 0 1px #3a7bd5;
+			}
+		}
+	}
+}

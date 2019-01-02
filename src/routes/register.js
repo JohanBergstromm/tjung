@@ -20,13 +20,15 @@ const schema = Joi.object()
                 },
             })
             .required(),
-            permission: Joi.object({
-              admin: Joi.boolean(),
-              user: Joi.boolean(),
-              mom: Joi.boolean(),
-              ryberg: Joi.boolean(),
-              demo: Joi.boolean(),
-            })
+        first_name: Joi.string(),
+        last_name: Joi.string(),
+        permission: Joi.object({
+            admin: Joi.boolean(),
+            user: Joi.boolean(),
+            mom: Joi.boolean(),
+            ryberg: Joi.boolean(),
+            demo: Joi.boolean(),
+        })
     })
     .required();
 
@@ -35,7 +37,7 @@ router.post('/register', register);
 async function register(req, res) {
     log(`${req.method} ${req.originalUrl}`);
 
-    console.log(req.body, req.url)
+    console.log(req.body, req.url, req.originalUrl)
 
     const result = Joi.validate(req.body, schema);
 
@@ -45,10 +47,10 @@ async function register(req, res) {
 
     try {
         const user = await User.create(req.body);
-        req.session.userId = user._id;
+        // Set registered user as current logged in user
+        // req.session.userId = user._id;
 
-        // res.send(user);
-        res.redirect('/')
+        res.json(user);
     } catch (err) {
         return res.status(500).send(err.message);
     }

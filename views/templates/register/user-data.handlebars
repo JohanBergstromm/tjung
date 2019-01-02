@@ -1,0 +1,18 @@
+<h2 class="mb-5">User created</h2>
+<p class="mb-2">Name: {{data.first_name}} {{data.last_name}}</p>
+<p class="mb-2">Email: {{data.email}}</p>
+{{#if data.permission.admin}}
+<p class="mb-2">Type of user: Admin</p>
+{{/if}}
+{{#if data.permission.user}}
+<p class="mb-2">Type of user: User</p>
+{{/if}}
+{{#if data.permission.mom}}
+<p class="mb-2">Type of user: Mom</p>
+{{/if}}
+{{#if data.permission.ryberg}}
+<p class="mb-2">Type of user: Ryberg</p>
+{{/if}}
+{{#if data.permission.demo}}
+<p class="mb-2">Type of user: Demo</p>
+{{/if}}

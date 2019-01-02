@@ -1,0 +1,19 @@
+<div class="modal-wrap">
+	<div class="modal-block modal--delete">
+		<div class="header text-center">
+			<div>
+				<span class="icon-report"></span>
+			</div>
+			<h4>{{data.modalHeader}}</h4>
+		</div>
+		<div class="body">
+			{{#if data.modalWarning}}
+			<h6 class="mb-4"><u>{{data.modalWarning}}</u></h6>
+			{{/if}}
+			<div class="d-flex justify-content-between">
+				<button class="remove text-uppercase py-lg-2 px-lg-4 mr-2">{{data.removeButton}}</button>
+				<button class="close">{{data.closeButton}}</button>
+			</div>
+		</div>
+	</div>
+</div>

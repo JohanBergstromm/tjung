@@ -10,26 +10,35 @@
 </head>
 
 <body>
+    {{#if user}}
+    <div class="mobile-header d-lg-none mb-4">
+        <div class="menu-button my-auto"></div>
+    </div>
     <div class="navigation-wrap">
-        <div class="navigation">
-            <div class="profile-img my-4"></div>
+        <div class="profile text-center my-4">
+            <img src="/images/profile/placeholder-profile.png">
+        </div>
+        <h5 class="text-center">{{user.first_name}} {{user.last_name}}</h5>
+        <div class="navigation px-3">
             <nav>
-                <ul class="unstyled-list">
+                <ul class="text-center">
                     <li><a href="/">Home</a></li>
                     <li><a href="/register">Register</a></li>
                     <li><a href="/accounts">Accounts</a></li>
+                    <li><a href="/alarm">Alarm</a></li>
+                    <li><a href="/logout">Sign out</a></li>
                 </ul>
             </nav>
         </div>
     </div>
+    {{/if}}
     <div class="wrapper">
     {{{body}}}
     </div>
-    <script type="text/javascript">
-        var pageEl = document.querySelectorAll("[class^=page--]")[0];
-        window.page = pageEl.className.split('--').pop();
-    </script>
-    <script type="text/javascript" src="/dist/jquery-3.3.1.min.js"></script>
+    <div class="modal-holder"></div>
+    <script type="text/javascript">if (document.querySelectorAll("[class^=page--]").length) {var pageEl = document.querySelectorAll("[class^=page--]")[0]; window.page = pageEl.className.split('--').pop(); } else {window.page = 'tjung'; } </script>
+    <!-- <script type="text/javascript" src="/dist/jquery-3.3.1.min.js"></script> -->
+    <script type="text/javascript" src="/js/handlebars-v4.0.12.js"></script>
     <script type="text/javascript" src="/dist/script.js"></script>
 </body>
 
